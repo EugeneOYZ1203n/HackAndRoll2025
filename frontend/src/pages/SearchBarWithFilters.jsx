@@ -23,7 +23,7 @@ const SearchBarWithFilters = ({setArticleData}) => {
 
     
     const filterString = 
-        `&from=2024-12-18&sortBy=${sortBySelected}&searchIn=title&language=${languageSelected}`
+        `&from=2024-12-18&sortBy=${sortBySelected}&language=${languageSelected}`
     const url = `https://newsapi.org/v2/everything?q=${searchInput}${filterString}&apiKey=a4ae6e84428346979de39ed52cb40cf6`
     
     const postQueryFilterPred = arti => arti.title !== '[Removed]'
@@ -57,7 +57,6 @@ const SearchBarWithFilters = ({setArticleData}) => {
                 selected = {sortBySelected}
                 setSelectedValue= {setSortBySelection}
             />
-            
         </HStack>
     )
 }
