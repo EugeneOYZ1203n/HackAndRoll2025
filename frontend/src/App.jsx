@@ -5,13 +5,14 @@ import SearchBar from './pages/SearchBar'
 import { VStack } from '@chakra-ui/react'
 import data from './DummyData'
 import LandingPosts from './pages/LandingPosts'
+import SearchBarWithFilters from './pages/SearchBarWithFilters'
 
 const App = () => {
   const [articleData, setArticleData] = useState(data); // article data is an array of 
   return (
     <VStack>
-      <SearchBar setArticleData = {setArticleData} />
-      <LandingPosts data={data}/>
+      <SearchBarWithFilters setArticleData = {setArticleData} />
+      <LandingPosts data={articleData}/>
     </VStack>
   )
 }
