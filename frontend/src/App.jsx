@@ -1,13 +1,12 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import NewsPost from './pages/NewsPost'
+import data from './DummyData'
 
 const App = () => {
-
   return (
-    <>
-    </>
+    
+    <NewsPost articleData = {data[0]}/>
   )
 }
 
