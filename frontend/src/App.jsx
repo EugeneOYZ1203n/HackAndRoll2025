@@ -1,19 +1,19 @@
-import { useState } from 'react'
 import './App.css'
-import NewsPost from './pages/NewsPost'
-import SearchBar from './pages/SearchBar'
-import { VStack } from '@chakra-ui/react'
-import data from './DummyData'
-import LandingPosts from './pages/LandingPosts'
-import SearchBarWithFilters from './pages/SearchBarWithFilters'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage'
+import NavBar from './pages/NavBar';
+import Technology from './pages/Technology';
 
 const App = () => {
-  const [articleData, setArticleData] = useState(data); // article data is an array of 
+  // article data is an array of 
   return (
-    <VStack>
-      <SearchBarWithFilters setArticleData = {setArticleData} />
-      <LandingPosts data={articleData}/>
-    </VStack>
+      <Router>
+        <NavBar/>
+        <Routes>
+          <Route path = "/" element = {<LandingPage/>}/>
+          <Route path = "/technology" element = {<Technology/>}/>
+        </Routes>
+      </Router>
   )
 }
 
