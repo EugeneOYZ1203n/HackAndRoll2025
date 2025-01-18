@@ -1,6 +1,7 @@
 import { Heading } from "@chakra-ui/react";
 import { Card } from "@chakra-ui/react";
 import { Button } from "@/components/ui/button";
+import SlangText from "@/translate/SlangText";
 
 const NewsPost = ({articleData}) => {
     const postTitle = articleData.title;
@@ -8,9 +9,9 @@ const NewsPost = ({articleData}) => {
     return (
         <Card.Root width="320px">
             <Card.Body gap="2">
-                <Card.Title mt="2">{postTitle}</Card.Title>
+                <Card.Title mt="2"><SlangText text ={postTitle}/></Card.Title>
                 <Card.Description>
-                    {postDescription}
+                    <SlangText text = {postDescription}/>
                 </Card.Description>
             </Card.Body>
             <Card.Footer justifyContent="flex-end">
