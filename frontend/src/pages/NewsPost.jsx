@@ -1,6 +1,6 @@
 import { Heading } from "@chakra-ui/react";
 import { Card } from "@chakra-ui/react";
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 const NewsPost = ({articleData}) => {
     const postTitle = articleData.title;
