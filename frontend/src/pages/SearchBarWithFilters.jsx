@@ -8,15 +8,22 @@ const SearchBarWithFilters = ({setArticleData}) => {
     const handleInputChange = (event) => {
         setSearchInput(event.target.value); // Update state with user input
     }
-    const [languageRadioSelection, setLanguageRadioSelection] = useState('English')
-    
-    const language_selections = {
+    const languageSelections = {
         English: 'en',
         French: 'fr',
         Espanol: "es"
     }
+    const sortBySelections = {
+        Relevant: 'relevancy',
+        Popular: 'popularity',
+        Recent: 'publishedAt'
+    }
+    const [languageSelected, setLanguageSelection] = useState(languageSelections.English)
+    const [sortBySelected, setSortBySelection] = useState(sortBySelections.Relevant)
+
+    
     const filterString = 
-        `&from=2024-12-18&sortBy=relevancy&searchIn=title&language=${language_selections[languageRadioSelection]}`
+        `&from=2024-12-18&sortBy=${sortBySelected}&searchIn=title&language=${languageSelected}`
     const url = `https://newsapi.org/v2/everything?q=${searchInput}${filterString}&apiKey=a4ae6e84428346979de39ed52cb40cf6`
     
     const postQueryFilterPred = arti => arti.title !== '[Removed]'
@@ -41,10 +48,16 @@ const SearchBarWithFilters = ({setArticleData}) => {
                 handleSearch={ handleSearch }
             ></SearchBar>
             <FilterSelection 
-                selections = {Object.keys(language_selections)} 
-                selected = {languageRadioSelection}
-                setSelectedValue={setLanguageRadioSelection}
+                selections = {languageSelections} 
+                selected = {languageSelected}
+                setSelectedValue={setLanguageSelection}
             />
+            <FilterSelection 
+                selections = {sortBySelections}
+                selected = {sortBySelected}
+                setSelectedValue= {setSortBySelection}
+            />
+            
         </HStack>
     )
 }
